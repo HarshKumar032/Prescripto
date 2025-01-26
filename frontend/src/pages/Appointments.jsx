@@ -61,16 +61,16 @@ const Appointment = () => {
 
         let day = currentDate.getDate();
         let month = currentDate.getMonth() + 1;
-        let year = currentDate.getFullYear() + 1;
+        let year = currentDate.getFullYear();
 
         const slotDate = day + "_" + month + "_" + year;
         const slotTime = formattedTime;
 
         const isSlotAvailable =
-          docInfo.slots_booked[slotDate] &&
-          docInfo.slots_booked.includes(slotTime)
-            ? false
-            : true;
+        docInfo.slots_booked[slotDate] &&
+        docInfo.slots_booked[slotDate].includes(slotTime)
+          ? false
+          : true;
 
         if (isSlotAvailable) {
           // Add slot to array
